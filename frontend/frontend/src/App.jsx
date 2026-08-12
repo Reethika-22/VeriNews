@@ -67,7 +67,7 @@ function createPeraSigner(accountAddress, onSigningStarted) {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState("about"); // about | verify | dashboard | history | settings
+  const [activeTab, setActiveTab] = useState("about"); // STARTING TAB IS ABOUT
   const [theme, setTheme] = useState(() => localStorage.getItem("verinews_theme") || "dark");
   const [news, setNews] = useState("");
   const [result, setResult] = useState(null);
@@ -80,6 +80,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterMyWallet, setFilterMyWallet] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [notice, setNotice] = useState(null);
 
   // Apply Theme to document root & persist to localStorage
   useEffect(() => {
@@ -127,6 +128,7 @@ function App() {
       const accounts = await peraWallet.connect();
       if (accounts && accounts.length > 0) {
         setAccountAddress(accounts[0]);
+        setNotice(null);
       }
     } catch (err) {
       console.error("Wallet connection failed:", err);
@@ -162,6 +164,20 @@ function App() {
     setStepMessage(message);
   };
 
+  // Handle Start Verification CTA Button Click
+  const handleStartVerification = () => {
+    if (!accountAddress) {
+      setNotice({
+        title: "Action Needed",
+        message: "Please connect your Pera Wallet first to verify news articles on Algorand TestNet."
+      });
+      connectWallet();
+    } else {
+      setNotice(null);
+      setActiveTab("verify");
+    }
+  };
+
   // ====================================================
   // Verify News Flow (x402 + Pera + AI + Smart Contract)
   // ====================================================
@@ -174,13 +190,17 @@ function App() {
     }
 
     if (!accountAddress) {
-      setError("Please connect your Pera Wallet first to sign the x402 verification payment.");
+      setNotice({
+        title: "Action Needed",
+        message: "Please connect your Pera Wallet first to sign the x402 verification payment."
+      });
       return;
     }
 
     setLoading(true);
     setError("");
     setResult(null);
+    setNotice(null);
 
     try {
       updateProgress(1, "Step 1: Preparing news verification request...");
@@ -312,7 +332,7 @@ function App() {
           <span className="tech-badge">AI × BLOCKCHAIN × x402</span>
         </div>
 
-        {/* 1st TAB IS ABOUT */}
+        {/* 1st STARTING TAB IS ABOUT */}
         <div className="nav-links">
           <button
             className={`nav-link ${activeTab === "about" ? "active" : ""}`}
@@ -367,12 +387,26 @@ function App() {
 
       {/* MAIN CONTENT */}
       <main className="container">
-        {/* TAB 1: ABOUT VERINEWS (FIRST TAB) */}
+        {/* CUSTOM NOTICE BANNER */}
+        {notice && (
+          <div className="custom-notice-banner">
+            <div className="notice-content">
+              <div className="notice-icon-box">⚡</div>
+              <div>
+                <div className="notice-title">{notice.title}</div>
+                <div className="notice-desc">{notice.message}</div>
+              </div>
+            </div>
+            <button className="notice-close-btn" onClick={() => setNotice(null)}>✕</button>
+          </div>
+        )}
+
+        {/* TAB 1: ABOUT VERINEWS (1st STARTING TAB) */}
         {activeTab === "about" && (
           <div className="tab-content">
             <div className="about-hero-card">
               <div className="about-logo-wrapper">
-                <svg viewBox="0 0 24 24" className="logo-svg" style={{ width: "48px", height: "48px" }}>
+                <svg viewBox="0 0 24 24" className="logo-svg" style={{ width: "40px", height: "40px" }}>
                   <path
                     d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"
                     fill="none"
@@ -391,15 +425,26 @@ function App() {
                   />
                 </svg>
               </div>
-              <h2>VeriNews Protocol</h2>
-              <p>
+              <h1>
+                VeriNews Protocol.
+                <br />
+                <span>Decentralized Truth Engine.</span>
+              </h1>
+              <p className="subtitle">
                 Decentralized AI-powered news verification system leveraging Machine Learning, SHA-256 cryptographic proofs, Algorand TestNet Smart Contracts, and x402 micro-payments.
               </p>
             </div>
 
+            {/* 4 TECH STACK CARDS WITH SIMPLE BLACK AND WHITE SVG ICONS */}
             <div className="about-grid">
               <div className="about-card">
-                <span className="about-icon">🧠</span>
+                <div className="bw-tech-icon">
+                  {/* Brain / AI Simple SVG */}
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 8v8M8 12h8" />
+                  </svg>
+                </div>
                 <h3>AI / Machine Learning</h3>
                 <p>
                   Articles are evaluated using a trained Natural Language Processing model utilizing TF-IDF vectorization and Logistic Regression trained on fake news datasets to identify deceptive linguistic patterns.
@@ -407,7 +452,13 @@ function App() {
               </div>
 
               <div className="about-card">
-                <span className="about-icon">🔒</span>
+                <div className="bw-tech-icon">
+                  {/* Lock / Cryptographic Hash Simple SVG */}
+                  <svg viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </div>
                 <h3>SHA-256 Integrity</h3>
                 <p>
                   The exact news content generates a unique 256-bit cryptographic hash digest. This ensures off-chain text privacy while maintaining tamper-evident integrity proof.
@@ -415,7 +466,13 @@ function App() {
               </div>
 
               <div className="about-card">
-                <span className="about-icon">⛓️</span>
+                <div className="bw-tech-icon">
+                  {/* Blockchain Link / Smart Contract Simple SVG */}
+                  <svg viewBox="0 0 24 24">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg>
+                </div>
                 <h3>Algorand Smart Contract</h3>
                 <p>
                   Verification proofs (Hash + Prediction + Timestamp) are committed directly to the Algorand TestNet blockchain via ARC-56 ABI smart contract calls (App ID: 769119533), providing permanent public auditability.
@@ -423,7 +480,12 @@ function App() {
               </div>
 
               <div className="about-card">
-                <span className="about-icon">⚡</span>
+                <div className="bw-tech-icon">
+                  {/* Lightning / Payment Simple SVG */}
+                  <svg viewBox="0 0 24 24">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                </div>
                 <h3>x402 Micro-Payments</h3>
                 <p>
                   x402 is an open HTTP 402 payment standard enabling automatic web3 micro-payments. Each news verification requires a $0.001 payment authorization handled seamlessly in-browser.
@@ -434,7 +496,7 @@ function App() {
             <div className="about-cta-banner">
               <h3>Ready to Verify an Article?</h3>
               <p>Experience instant decentralized news verification on Algorand TestNet.</p>
-              <button className="about-cta-btn" onClick={() => setActiveTab("verify")}>
+              <button className="about-cta-btn" onClick={handleStartVerification}>
                 Start News Verification →
               </button>
             </div>
@@ -480,7 +542,7 @@ function App() {
                   onClick={verifyNews}
                   disabled={loading}
                 >
-                  {loading ? "Processing Verification..." : "Verify News"}
+                  {loading ? "Processing Verification..." : "Verify News → $0.001"}
                 </button>
               </div>
             </section>
@@ -788,7 +850,7 @@ function App() {
             </div>
 
             <div className="settings-section-grid">
-              {/* CARD 1: THEME SELECTION (DARK MODE / LIGHT MODE) */}
+              {/* CARD 1: THEME SELECTION WITH MOON/SUN SVG ICONS */}
               <div className="settings-card">
                 <div className="settings-card-header">
                   
@@ -838,7 +900,7 @@ function App() {
               {/* CARD 2: PERA WALLET CONNECT / DISCONNECT MANAGEMENT */}
               <div className="settings-card">
                 <div className="settings-card-header">
-                 
+                  
                   <h3>Pera Wallet Management</h3>
                 </div>
                 <p className="settings-card-desc">
