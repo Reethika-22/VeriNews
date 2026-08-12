@@ -1,5 +1,71 @@
 [
   {
+    "id": "ver_1786572875996_5mefqh",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "dd3990012d43e208d16148b2b151b5497fc17a389b76df1a8082c088eda456de",
+    "prediction": "REAL",
+    "timestamp": "2026-08-12T22:14:35.294Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T22:14:35.996Z"
+  },
+  {
+    "id": "ver_1786572848357_du185p",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "176f6483587b77fd0b32485b41450fd85143cdafbfb929dce7595ceca7a89c25",
+    "prediction": "FAKE",
+    "timestamp": "2026-08-12T22:14:07.749Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T22:14:08.357Z"
+  },
+  {
+    "id": "ver_1786572808228_51xwz8",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "2348a10a536c590d71ac81be96b683f753e3b365cd5a7da2771b9575e24a39b1",
+    "prediction": "REAL",
+    "timestamp": "2026-08-12T22:13:27.713Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T22:13:28.228Z"
+  },
+  {
+    "id": "ver_1786572771142_l9udtb",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "2d416021f1ee6c2c6fa4e407a13947710b0c5b9b129e7903040089b692952cc4",
+    "prediction": "FAKE",
+    "timestamp": "2026-08-12T22:12:50.645Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T22:12:51.142Z"
+  },
+  {
+    "id": "ver_1786572687173_kaob0s",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "30e5f186a32f121cf87b4169293b77473e8cace51821bee7a32ac5bcf92573a7",
+    "prediction": "FAKE",
+    "timestamp": "2026-08-12T22:11:26.572Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T22:11:27.173Z"
+  },
+  {
+    "id": "ver_1786572378037_svqvqo",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "30e5f186a32f121cf87b4169293b77473e8cace51821bee7a32ac5bcf92573a7",
+    "prediction": "FAKE",
+    "timestamp": "2026-08-12T22:06:17.349Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T22:06:18.037Z"
+  },
+  {
     "id": "ver_1786567361311_i3v8df",
     "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
     "newsHash": "2348a10a536c590d71ac81be96b683f753e3b365cd5a7da2771b9575e24a39b1",

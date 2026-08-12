@@ -426,9 +426,9 @@ function App() {
                 </svg>
               </div>
               <h1>
-                VeriNews Protocol.
+                VeriNews
                 <br />
-                <span>Decentralized Truth Engine.</span>
+                <span>Decentralized Truth Engine</span>
               </h1>
               <p className="subtitle">
                 Decentralized AI-powered news verification system leveraging Machine Learning, SHA-256 cryptographic proofs, Algorand TestNet Smart Contracts, and x402 micro-payments.
