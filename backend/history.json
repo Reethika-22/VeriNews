@@ -1,5 +1,16 @@
 [
   {
+    "id": "ver_1786567361311_i3v8df",
+    "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
+    "newsHash": "2348a10a536c590d71ac81be96b683f753e3b365cd5a7da2771b9575e24a39b1",
+    "prediction": "REAL",
+    "timestamp": "2026-08-12T20:42:40.628Z",
+    "verificationTransactionId": null,
+    "paymentTransactionId": null,
+    "paymentStatus": "paid",
+    "createdAt": "2026-08-12T20:42:41.312Z"
+  },
+  {
     "id": "ver_1786560273816_uylde4",
     "walletAddress": "HVAGPE2XLWMUFS2VQIVYTYQXWCYGTC6W6FXWPI4AYN2V53ZOG7ZDABUBXY",
     "newsHash": "0b7661878b6a67015dd6f80b3e2a61beb31ca95702bbcaec7a05abdc986be642",

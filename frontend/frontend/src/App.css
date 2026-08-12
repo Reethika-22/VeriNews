@@ -75,17 +75,40 @@ body {
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  margin-right: 28px;
+}
+
+.logo-emblem {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #a855f7, #6366f1, #38bdf8);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logo-section:hover .logo-emblem {
+  transform: scale(1.06) rotate(-3deg);
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.55);
+}
+
+.logo-svg {
+  width: 26px;
+  height: 26px;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
   color: var(--text-main);
 }
 
 .logo span {
-  background: linear-gradient(135deg, #a855f7, #6366f1);
+  background: linear-gradient(135deg, #c084fc, #818cf8, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -96,9 +119,11 @@ body {
   letter-spacing: 1px;
   background: rgba(99, 102, 241, 0.15);
   color: #6366f1;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   border: 1px solid rgba(99, 102, 241, 0.3);
+  margin-left: 4px;
+  white-space: nowrap;
 }
 
 .nav-right-actions {
@@ -817,9 +842,28 @@ textarea:focus {
   box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
 }
 
-.theme-preview-icon {
-  font-size: 32px;
-  margin-bottom: 10px;
+.theme-svg-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-svg-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+[data-theme="light"] .theme-svg-icon svg {
+  stroke: #000000;
 }
 
 .theme-name {

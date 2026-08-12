@@ -286,6 +286,26 @@ function App() {
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo-section" onClick={() => setActiveTab("about")}>
+          <div className="logo-emblem">
+            <svg viewBox="0 0 24 24" className="logo-svg">
+              <path
+                d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M9 12l2 2 4-4"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
           <div className="logo">
             Veri<span>News</span>
           </div>
@@ -352,7 +372,24 @@ function App() {
           <div className="tab-content">
             <div className="about-hero-card">
               <div className="about-logo-wrapper">
-                <span className="about-logo-text">VN</span>
+                <svg viewBox="0 0 24 24" className="logo-svg" style={{ width: "48px", height: "48px" }}>
+                  <path
+                    d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M9 12l2 2 4-4"
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
               <h2>VeriNews Protocol</h2>
               <p>
@@ -443,7 +480,7 @@ function App() {
                   onClick={verifyNews}
                   disabled={loading}
                 >
-                  {loading ? "Processing Verification..." : "Verify News → $0.001"}
+                  {loading ? "Processing Verification..." : "Verify News"}
                 </button>
               </div>
             </section>
@@ -766,7 +803,11 @@ function App() {
                     className={`theme-card-option ${theme === "dark" ? "active" : ""}`}
                     onClick={() => setTheme("dark")}
                   >
-                    
+                    <div className="theme-svg-icon">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                      </svg>
+                    </div>
                     <div className="theme-name">Dark Mode</div>
                     <div className="theme-status">{theme === "dark" ? "Active" : "Select"}</div>
                   </div>
@@ -775,7 +816,19 @@ function App() {
                     className={`theme-card-option ${theme === "light" ? "active" : ""}`}
                     onClick={() => setTheme("light")}
                   >
-                    
+                    <div className="theme-svg-icon">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                      </svg>
+                    </div>
                     <div className="theme-name">Light Mode</div>
                     <div className="theme-status">{theme === "light" ? "Active" : "Select"}</div>
                   </div>
